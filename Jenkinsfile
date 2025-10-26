@@ -6,7 +6,7 @@ pipeline {
         CONTAINER_NAME = "springboot-app"
         GITHUB_REPO = "https://github.com/Shivangran/springboot-jenkins-demo.git"
         GIT_BRANCH = "main"
-        GIT_CREDENTIALS = "github-creds"
+        GIT_CREDENTIALS = "github-creds"  // Make sure this exists in Jenkins
     }
 
     stages {
@@ -41,12 +41,12 @@ pipeline {
         stage('Stop Existing Container') {
             steps {
                 echo "Stopping any running container..."
-                sh """
-                    if [ \$(docker ps -q -f name=${CONTAINER_NAME}) ]; then
+                sh '''
+                    if [ $(docker ps -q -f name=${CONTAINER_NAME}) ]; then
                         docker stop ${CONTAINER_NAME}
                         docker rm ${CONTAINER_NAME}
                     fi
-                """
+                '''
             }
         }
 
