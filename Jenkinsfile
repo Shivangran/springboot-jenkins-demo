@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
+                git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/Shivangran/springboot-jenkins-demo.git'
             }
         }
 
