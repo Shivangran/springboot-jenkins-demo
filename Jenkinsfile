@@ -10,6 +10,13 @@ pipeline {
     }
 
     stages {
+        stage('Get User Info') {
+            steps {
+                echo "Getting the user running this job..."
+                sh 'echo "Current user: $(whoami)"'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 echo "Checking out code from GitHub..."
